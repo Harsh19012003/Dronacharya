@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="apology-div col-12 d-flex justify-content-center">
+        <img alt="{{ top }}" class="apology-img border" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png" title="{{ top }}">
+    </div>
+</div>
+{% endblock %}

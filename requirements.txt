@@ -1,0 +1,6 @@
+sqlite3
+Flask
+Flask-Session
+requests
+git hub hosted api
+frontend support

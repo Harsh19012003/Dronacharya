@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="/static/favicon.ico" rel="icon">
+    <link href="/static/styles.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+    <!--main index part-->
+    
+    
+    <!--footer-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+
+<body>
+
+    
+    <header>
+      <div class="big-nav-cont">
+        <div class="containera container-nav">
+          <div class="titles">
+            <a class="navbar-brand logo-image" href="http://127.0.0.1:5000/"><img class="navbar-brand logo-image" src="static/dronacharya.jpeg" alt="alternative"></a>
+          </div>
+          <nav>
+            <ul>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="http://127.0.0.1:5000/">HOME<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link page-scroll" href="http://127.0.0.1:5000/register">REGISTER</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link page-scroll" href="http://127.0.0.1:5000/login">LOGIN</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link page-scroll" href="http://127.0.0.1:5000/faqs">FAQS</a>
+            </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    
+    <main class="">
+        {% block main %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer poppins">
+      <div class="container bottom_border">
+      <div class="row">
+      <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+      <h5 class="headin5_amrc col_white_amrc pt2 poppins">About me</h5>
+      <!--headin5_amrc-->
+      <p class="mb10 poppins">Harshkumar Devmurari.<br>Student at Mumbai University.<br> AI ML enthusiast.</p>
+      <p class="poppins"><i class="fa fa-location-arrow"></i> A/402, Aabhas complex, Mahesh park, Tulinj road, Nallasopara[E], 401209. </p>
+      <p class="poppins"><i class="fa fa-phone"></i>  +91-8793702047  </p>
+      <p class="poppins"><i class="fa fa fa-envelope"></i> harshdevmurari007@gmail.com  </p>
+      </div>
+      
+      
+      <div class=" col-sm-4 col-md  col-6 col">
+      <h5 class="headin5_amrc col_white_amrc pt2">Official links</h5>
+      <!--headin5_amrc-->
+      <ul class="footer_ul_amrc">
+      <li><a href="https://www.mahahsscboard.in/" target="blank">Maharastra Board</a></li>
+      <li><a href="https://jeemain.nta.nic.in/webinfo2021/Page/Page?PageId=1&LangId=P" target="blank">JEE Main</a></li>
+      <li><a href="https://cetcell.mahacet.org/" target="blank">MHT-CET</a></li>
+      </ul>
+      <!--footer_ul_amrc ends here-->
+      </div>
+      
+      
+      <div class=" col-sm-4 col-md  col-6 col">
+      <h5 class="headin5_amrc col_white_amrc pt2">Other External References</h5>
+      <!--headin5_amrc-->
+      <ul class="footer_ul_amrc">
+      <li><a href="https://www.careers360.com/compare-colleges" target="blank">Compare colleges</a></li>
+      <li><a href="https://engineering.careers360.com/jee-main-rank-predictor?icn=jee-main-rp-landing-page&ici=prediction-section_c360-home" target="blank">Jee Rank Predictor</a></li>
+      <li><a href="https://www.careers360.com/colleges/reviews?icn=college-reviews-page_landing-page&ici=other-products-section_c360-home" target="blank">College Reviews</a></li>
+      <li><a href="https://www.careers360.com/application-forms/colleges?icn=admission-open_landing-page&ici=other-products-section_c360-home" target="blank">College Application</a></li>
+      <li><a href="https://engineering.careers360.com/colleges/ranking" target="blank">Top Engineering Colleges in India</a></li>
+      </ul>
+      <!--footer_ul_amrc ends here-->
+      </div>
+      
+      
+      <div class=" col-sm-4 col-md  col-12 col">
+      <h5 class="headin5_amrc col_white_amrc pt2">Follow us</h5>
+      <!--headin5_amrc ends here-->
+      
+      <ul class="footer_ul2_amrc">
+      <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
+      <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
+      <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
+      </ul>
+      <!--footer_ul2_amrc ends here-->
+      </div>
+      </div>
+      </div>
+      
+      
+      <div class="container">
+      <ul class="foote_bottom_ul_amrc">
+      <li><a href="http://127.0.0.1:5000/">Home</a></li>
+      <li><a href="http://127.0.0.1:5000/register">Register</a></li>
+      <li><a href="http://127.0.0.1:5000/login">Login</a></li>
+      <li><a href="http://127.0.0.1:5000/details">Details</a></li>
+      <li><a href="http://127.0.0.1:5000/faqs">FAQS</a></li>
+      </ul>
+      <!--foote_bottom_ul_amrc ends here-->
+      <p class="text-center poppins">Copyright @2021 | Designed by Harshkumar Devmurari</p>
+      
+      
+      <!--social_footer_ul ends here-->
+      </div>
+      
+    </footer>
+<!-- Footer -->
+
+</body>
+</html>

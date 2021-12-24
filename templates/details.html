@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Details
+{% endblock %}
+
+{% block main %}
+<!--
+    <div>
+        <div>
+            <div>
+                <h5>Enter your CET score</h5>
+                <input type="text" name="cet" placeholder="Your CET Score" autofocus autocomplete="off">
+            </div>
+            <div>
+                <h5>Enter your JEE score</h5>
+                <input type="text" name="jee" placeholder="Your JEE Score" autocomplete="off">
+            </div>
+            <div>
+                <h5>Your location</h5>
+                <label>
+                <input type="radio" name="location" value="enter" required>Enter some location other than your current location
+                </label>
+                <br>
+                <input type="text" name="entered_location" placeholder="Enter your location here">
+                <br>
+                <label>
+                <input type="radio" name="location" value="track">Give your current location
+                </label>
+            </div>
+            <div>
+                <h5>Choose engineering branches</h5>
+                <label>
+                <input type="checkbox" name="Computer Engineering" value="Computer Engineering">Computer Engineering
+                </label>
+                <label>
+                    <input type="checkbox" name="Information Technology" value="Information Technology">Information Technology
+                </label>
+                <label>
+                    <input type="checkbox" name="Computer Science and Engineering(Data Science)" value="Computer Science and Engineering(Data Science)">Computer Science and Engineering(Data Science)
+                </label>
+                <label>
+                    <input type="checkbox" name="Artificial Intelligence and Data Science" value="Artificial Intelligence and Data Science">Artificial Intelligence and Data Science
+                </label>
+                <label>
+                    <input type="checkbox" name="Mechanical Engineering" value="Mechanical Engineering">Mechanical Engineering
+                </label>
+                <label>
+                    <input type="checkbox" name="Electronics Engineering" value="Electronics Engineering">Electronics Engineering
+                </label>
+                <label>
+                    <input type="checkbox" name="Chemical Engineering" value="Chemical Engineering">Chemical Engineering
+                </label>
+                <label>
+                    <input type="checkbox" name="Electronics and Telecommunication\nEngg" value="Electronics and Telecommunication\nEngg">Electronics and Telecommunication Engg
+                </label>
+                <label>
+                    <input type="checkbox" name="Automobile Engineering" value="Automobile Engineering">Automobile Engineering
+                </label>
+            </div>
+            <br>
+            <div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+    </div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+<form action="/details" method="POST">
+    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+        <div class="loginbackground padding-top--64">
+          <div class="loginbackground-gridContainer">
+            <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+              <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+              </div>
+            </div>
+            <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+              <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+            </div>
+            <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+              <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+            </div>
+            <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+              <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+            </div>
+            <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+              <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+            </div>
+            <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+              <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+            </div>
+            <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+              <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+            </div>
+            <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+              <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+            </div>
+            <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+              <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+          <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+            <h1><b>Details page</b></h1>
+          </div>
+          <div class="formbg-outer">
+            <div class="formbg">
+              <div class="formbg-inner padding-horizontal--48">
+                <span class="padding-bottom--15">Please provide details asked below</span>
+                    <div class="field padding-bottom--24">
+                        <label for="cet">CET Score</label>
+                        <input type="text" name="cet" placeholder="Your CET Score" autofocus autocomplete="off">
+                    </div>
+                    <div class="field padding-bottom--24">
+                            <label for="jee">JEE Score</label>
+                            <input type="text" name="jee" placeholder="Your JEE Score" autocomplete="off">
+                    </div>
+                    <label for="location">Location</label>
+                    <label>
+                        <input type="radio" name="location" value="enter" required>Enter some location other than your current location
+                    </label>
+                    <div class="field padding-bottom--24 flex-flex center-center">
+                        <input type="text" name="entered_location" placeholder="Enter your location here">
+                    </div>
+                    <label>
+                        <input type="radio" name="location" value="track">Give your current location
+                    </label>
+                    <div>
+                        <label>Choose engineering branches</label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Computer Engineering" value="Computer Engineering">Computer Engineering
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Information Technology" value="Information Technology">Information Technology
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Computer Science and Engineering(Data Science)" value="Computer Science and Engineering(Data Science)">Computer Science and Engineering(Data Science)
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Artificial Intelligence and Data Science" value="Artificial Intelligence and Data Science">Artificial Intelligence and Data Science
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Mechanical Engineering" value="Mechanical Engineering">Mechanical Engineering
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Electronics Engineering" value="Electronics Engineering">Electronics Engineering
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Chemical Engineering" value="Chemical Engineering">Chemical Engineering
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Electronics and Telecommunication\nEngg" value="Electronics and Telecommunication\nEngg">Electronics and Telecommunication Engg
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Automobile Engineering" value="Automobile Engineering">Automobile Engineering
+                        </label>
+                        <br>
+                    </div>
+                  <div class="field padding-bottom--24">
+                    <input type="submit" name="submit" value="Continue">
+                  </div>
+              </div>
+            </div>
+            <div class="footer-link padding-top--24">
+              <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+                <span><a href="http://127.0.0.1:5000/">©Heya</a></span>
+                <span><a href="#">Contact</a></span>
+                <span><a href="#">Privacy & terms</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
+{% endblock %}
