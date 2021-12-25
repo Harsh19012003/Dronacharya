@@ -1,6 +1,6 @@
 import os
 import sqlite3
-import cv2 as cv
+# import cv2 as cv
 import numpy as nu
 # import pyzbar.pyzbar as pyzbar (Scanning QR Code)
 from flask import Flask, flash, redirect, render_template, request, session
