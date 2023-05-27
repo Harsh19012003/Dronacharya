@@ -29,10 +29,10 @@ def after_request(response):
 
 
 # Connecting to database
-conn = sqlite3.connect("database.db", timeout = 50, check_same_thread=False)
+conn = sqlite3.connect("/home/HarshDevmurariDronacharya/mysite/database.db", timeout = 50, check_same_thread=False)
 db = conn.cursor()
 try:
-    sqliteConnection = sqlite3.connect("database.db")
+    sqliteConnection = sqlite3.connect("/home/HarshDevmurariDronacharya/mysite/database.db")
     print("Database created and succcessfully connected to SQLite")
 
     sqlite_select_Query = "select sqlite_version();"
@@ -105,14 +105,21 @@ def register():
         # Generating hash to store in database
         hash = generate_password_hash(password)
 
+
         # Storing in database
         db.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", [name, email, hash])
         # print("tables interior: ")
         db.execute("SELECT * FROM users")
-        # print(f"fetch of register", db.fetchall())
+        print(f"fetch of register", db.fetchall())
+
+        db.execute("SELECT * FROM users")
+        print(f"fetch of register2", db.fetchall())
+
+
+
 
         return redirect("/login")
-    
+
     # If user reached route via GET
     else:
         return render_template("register.html")
@@ -129,15 +136,17 @@ def login():
         name = request.form.get("name")
         password = request.form.get("password")
 
+
         # Validating info with database
         db.execute("SELECT * FROM users")
         rows = db.fetchall()
-        # print(f"fetch of login: {rows}")
+        print(f"fetch of login: {rows}")
         for row in rows:
             if row[1] == name:
                 # Remember which user has logged in
                 #session["id"] = rows[0][0]
                 print("successfull login")
+
                 return redirect("/details")
         return apology("Please register if you havent")
 
@@ -169,15 +178,16 @@ def details():
         # Basic errorhandeling
         if cet=="" and jee=="":
             return apology("Atleast one marks are required")
-        
+
         if location == "enter":
+            pass
             # Find and use API
-            print(f"Users entered location is: {entered_location}")
+            # print(f"Users entered location is: {entered_location}")
         elif location == "track":
             userlocation = user_tracked_location()
             # print(f"Your current location is: {userlocation}")
         else:
-            return apology("please provide location") 
+            return apology("please provide location")
 
         # Scanning QR code
         '''
@@ -213,7 +223,7 @@ def details():
         for item in ffli:
             params.append(item)
         # print(f"params: {params}")
-        
+
         # Database query for colleges in which admission is possible due to jee
         db.execute("SELECT * FROM colleges WHERE Merit_Score<=? AND Exam_JEEMHT__CET='JEE' AND Course_Name IN (%s)"%', '.join('?' for a in ffli), params)
         global clg_jee_list
@@ -229,7 +239,7 @@ def details():
         # print(f"clg_cet_list: {clg_cet_list}")
 
         # Merging both jee and mht-cet lists
-        global clg_list 
+        global clg_list
         clg_list = clg_jee_list + clg_cet_list
         # print(f"clg_list: {clg_list}")
 
@@ -283,6 +293,3 @@ for code in default_exceptions:
 
 if __name__ == '__main__':
     app.run(debug = True)
-
-
-conn.close()

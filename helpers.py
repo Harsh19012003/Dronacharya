@@ -65,6 +65,9 @@ def password_check(ps):
 # Tracks users location via geolocation api
 def user_tracked_location():
     # Returns bunch of user location info along with latitude and longitude
+    """
+    THIS IS NOT ACCURATE JUST IMPLEMENTED THE FUNCTIONALITY
+    """
     request_url = 'https://geolocation-db.com/jsonp/'
     response = requests.get(request_url)
     result = response.content.decode()
