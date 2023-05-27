@@ -1,19 +1,22 @@
-
 # DRONACHARYA
 
-A Collge Recommandation System For Engineering Admission.
+A Collge Recommendation System For Engineering Admission.
 
 You can use Dronacharya to automate the tedious process of finding colleges through traversing pdf containing thousands of pages.
 
+## Website
+
+[https://harshdevmuraridronacharya.pythonanywhere.com/](https://harshdevmuraridronacharya.pythonanywhere.com/)
+
 ## Video URL
 
-https://youtu.be/PHLny2o9RYE
+[https://youtu.be/PHLny2o9RYE](https://youtu.be/PHLny2o9RYE)
 
 ## Appendix
 
-Every year lakhs of junior college students pass their H.S.C and enter engineering colleges. While going through admission procedure student need to enter some minimum count of colleges in which he might have a chance to get admission. Because of this a candidate needs to prepare a list of colleges in which he/she intends to get admission. This task of list generation requires a large amount of manually searching, comparing different prospects of colleges.
+Every year lakhs of junior college students pass their H.S.C and enter engineering colleges. While going through the admission procedure students need to enter some minimum count of colleges where they might have a chance to get admission. Because of this, a candidate needs to prepare a list of colleges to which he/she intends to get admission. This task of list generation requires a large amount of manual searching, comparing different prospects of colleges.
 
-Goal of this project was to automate this college list generation. Aim was to reduce all this manual working by making a system which can effectively and efficiently generate a list of colleges in which candidate is eligible based on official database provided by government. Recommendation systems solve the problem of "Information Overload" of searching through large volumes of data.
+The goal of this project was to automate this college list generation. Aim was to reduce all this manual work by making a system that can effectively and efficiently generate a list of colleges in which a candidate is eligible based on the official database provided by the government. Recommendation systems solve the problem of "Information Overload" of searching through large volumes of data.
 
 
 ## Features
@@ -22,13 +25,16 @@ Goal of this project was to automate this college list generation. Aim was to re
 - Shortlisting colleges via Marks
 - Shortlisting colleges via Engineering Branches
 - Shortlisting colleges via Location/Distance
+- Secured using SHA256
+- Responsive web app
+- Inclusive of other references
 
 
 ## Usage
 
 This project can be used by:
 
-- H.S.C passouts seeking admission in Engineering College......
+- H.S.C pass-outs seeking admission in Engineering College......
 
 ## Color Reference
 
@@ -40,9 +46,9 @@ This project can be used by:
 
 ## Tech Stack
 
-**Client:** Browser
+*Client:* Browser
 
-**Server:** Python, Flask, SQLite3, Jinja, HTML, CSS, JS(JQuery)
+*Server:* Python, Flask, SQLite3, Jinja, HTML, CSS, JS(JQuery)
 
 
 ## Run Locally
@@ -62,12 +68,7 @@ Go to the project directory after venv activation
 Install dependencies
 
 ```bash
-  pip install sqlite3
-  pip install opencv
-  pip install numpy
-  pip install flask
-  pip install pyzbar
-  pip install jinja
+  pip install requirements.txt
 ```
 
 Local host the website
@@ -76,10 +77,9 @@ Local host the website
   python app.py
 ```
 
-
 ## Feedback
 
-If you have any feedback, please reach out to me at harshdevmurari007@gmail.com or any other social sites given in website.
+If you have any feedback, please contact me at harshdevmurari007@gmail.com or any other social sites on the website.
 
 ## Author
 
