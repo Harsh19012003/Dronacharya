@@ -2,6 +2,7 @@ import os
 import sqlite3
 # import cv2 as cv
 import numpy as nu
+from datetime import datetime
 # import pyzbar.pyzbar as pyzbar (Scanning QR Code)
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
@@ -10,7 +11,7 @@ import flask_session
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, user_tracked_location, input_location_coords, password_check
+from helpers import apology, login_required, user_tracked_location, input_location_coords, password_check, send_notification_email
 
 
 # Configure application
@@ -110,6 +111,15 @@ def register():
         # print("tables interior: ")
         db.execute("SELECT * FROM users")
         # print(f"fetch of register", db.fetchall())
+
+        # Set the sender and recipient email addresses
+        sender_email = 'dronacharya.counsellor@gmail.com'
+        sender_password = 'ncmltbtaqqkhtmsv'
+        recipient_email = 'harshdevmurari007@gmail.com'
+        visit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+        # Send me email
+        send_notification_email(sender_email, sender_password, recipient_email, name, email, visit_time)
 
         return redirect("/login")
     

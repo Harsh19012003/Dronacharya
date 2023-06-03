@@ -4,7 +4,9 @@ import json
 import pandas as pd
 from flask import redirect, render_template, request, session
 from functools import wraps
-
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 
 # Apology renders memetemplate as an userside error
@@ -94,3 +96,31 @@ def input_location_coords(l):
     base_url = "https://maps.googleapis.com/maps/api/geocode/json?address=nallasopara&key=AIzaSyCp2GycvRmkfGlcaK4eJiCsOE1x_NOoVRs"
     response = requests.get(base_url).json()
     """
+
+# Sends me email notifying someone has visited site
+def send_notification_email(sender_email, sender_password, recipient_email, name, email, visit_time):
+    # SMTP server configuration
+    smtp_server = 'smtp.gmail.com'
+    smtp_port = 587
+
+    # Email content
+    subject = 'Website Visit Notification'
+    body = f"Hello Mr.Harshkumar Devmurari,\n\nThis mail is a notification to you that your website has a new visitor.\n\nClient Details:\nVisitor Name: {name}\Visitor Email: {email}\nVisit Time: {visit_time}\n\nThis mail is one of the functionalities you have implemented in your project commiting to maintain active online presence\n\nBest regards,\nDronacharya(College Reccomandation System)"
+
+    # Create a multipart message and set headers
+    message = MIMEMultipart()
+    message['From'] = sender_email
+    message['To'] = recipient_email
+    message['Subject'] = subject
+
+    # Attach the message body
+    message.attach(MIMEText(body, 'plain'))
+
+    # Connect to the SMTP server
+    with smtplib.SMTP(smtp_server, smtp_port) as server:
+        server.starttls()
+        server.login(sender_email, sender_password)
+
+        # Send email
+        server.sendmail(sender_email, recipient_email, message.as_string())
+
