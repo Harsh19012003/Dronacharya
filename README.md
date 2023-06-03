@@ -28,6 +28,7 @@ The goal of this project was to automate this college list generation. Aim was t
 - Secured using SHA256
 - Responsive web app
 - Inclusive of other references
+- Mails me for new visitors
 
 
 ## Usage
