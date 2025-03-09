@@ -1,4 +1,5 @@
 import os
+import re
 import requests
 import json
 import pandas as pd
@@ -7,6 +8,13 @@ from functools import wraps
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+from datetime import datetime
+
+# Check Email basic need
+def email_check(email):
+    email_regex = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+    return bool(re.match(email_regex, email))
 
 
 
@@ -99,14 +107,25 @@ def input_location_coords(l):
     """
 
 # Sends me email notifying someone has visited site
-def send_notification_email(sender_email, sender_password, recipient_email, name, email, visit_time):
+def send_notification_email(name, email):
+    # Basic config
+    sender_email = 'dronacharya.counsellor@gmail.com'
+    sender_password = 'ncmltbtaqqkhtmsv'
+    recipient_email = 'harshdevmurari007@gmail.com'
+    visit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
     # SMTP server configuration
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
 
     # Email content
-    subject = 'Website Visit Notification'
-    body = f"Hello Mr.Harshkumar Devmurari,\n\nThis mail is a notification to you that your website has a new visitor.\n\nClient Details:\nVisitor Name: {name}\nVisitor Email: {email}\nVisit Time: {visit_time}\n\nThis mail is one of the functionalities you have implemented in your project commiting to maintain active online presence\n\nBest regards,\nDronacharya(College Reccomandation System)"
+    if name=="NONE":
+        subject = 'New Visitor Detected, Sir'
+        body = f"SUBJECT: New Visitor Detected, Sir.\n\nAttention, Mr. Devmurari.\n\nI'm here to report a new visitor on your website. They entered at the landing page at {visit_time}.\n\nWhile I don't have further details about the visitor at this time, I am standing by for any additional instructions or if you wish to analyze their activity.\n\nAt your service,\nJarvis"
+    else:
+        subject = 'Attention Required, Mr. Devmurari. New Visitor Details.'
+        # body = f"Hello Mr.Harshkumar Devmurari,\n\nThis mail is a notification to you that your website has a new visitor.\n\nClient Details:\nVisitor Name: {name}\nVisitor Email: {email}\nVisit Time: {visit_time}\n\nThis mail is one of the functionalities you have implemented in your project commiting to maintain active online presence\n\nBest regards,\nDronacharya(College Reccomandation System)"
+        body = f"SUBJECT: Attention Required, Mr. Devmurari. I now have full details of Visitor.\n\nMr. Devmurari,\n\nJarvis here, with an update regarding that visitor. A new person, identified as {name}, has landed on your site at {visit_time}. Additionally, I have their email address: {email}.\n\n Should you require further investigation or wish to initiate contact, I stand ready to assist.\n\nAlways at your service,\n\nJarvis"
 
     # Create a multipart message and set headers
     message = MIMEMultipart()

@@ -4,14 +4,17 @@
 Login
 {% endblock %}
 
-
+{% block metacontent %}
+<meta name="description" content="Bypass college info overload! Dronacharya's AI recommendations connect you with the perfect engineering program. JEE/CET, location, interests – let AI guide you. Log In!" />
+<meta name="keyword" content="bachlor of engineering, bachlor of technology" />
+{% endblock %}
 
 
 {% block main %}
 
 <form action="/login" method="POST">
     <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
-        <div class="loginbackground padding-top--64">
+        <div class="padding-top--64">
           <div class="loginbackground-gridContainer">
             <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
               <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
@@ -79,7 +82,7 @@ Login
             <div class="footer-link padding-top--24 poppins">
               <span>Don't have an account? <a href="http://127.0.0.1:5000/register">Sign up</a></span>
               <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
-                <span><a href="http://127.0.0.1:5000/">©Dronacharya</a></span>
+                <span><a href="https://harshdevmuraridronacharya.pythonanywhere.com/">©Dronacharya</a></span>
                 <span><a href="#">Contact</a></span>
                 <span><a href="#">Privacy & terms</a></span>
               </div>

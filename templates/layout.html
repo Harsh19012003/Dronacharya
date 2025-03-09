@@ -1,65 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block metacontent %}{% endblock %}
+    <meta name="robots" content="index, follow">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="/static/favicon.ico" rel="icon">
+    <!-- FAVICON -->
+    <link href="/static/d6.ico" rel="icon">
     <link href="/static/styles.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
-    <!--main index part-->
-    
-    
     <!--footer-->
-    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    
-    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            if (sessionStorage.getItem('notificationBar') != 1) {
+                showNotificationBar();
+            }
 
-    <title>{% block title %}{% endblock %}</title>
+            $('.notification-bar').find('.close').click(function(){
+                sessionStorage.setItem('notificationBar', 1);
+                hideNotificationBar();
+            });
+
+            function showNotificationBar(){
+                $('.notification-bar').show();
+            }
+
+            function hideNotificationBar(){
+                $('.notification-bar').slideUp();
+            }
+
+            if (sessionStorage.getItem('sentMail') != 1){
+                sessionStorage.setItem('sentMail', 1)
+                sendEmailNotification();
+            }
+
+
+            (function(){
+                emailjs.init("bQAZAVEzf6EBhiOec");
+              })();
+
+
+            function sendEmailNotification() {
+                fetch("https://ipapi.co/json/")
+                .then(response => response.json())
+                .then(data => {
+                  const visitor_ip = data.ip;
+                  const user_country = data.country_name;
+                  const user_city = data.city;
+                  const user_region = data.region;
+                  const user_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                  const user_browser = navigator.userAgent;
+                  const user_os = navigator.platform;
+                  const user_screen = `${window.screen.width}x${window.screen.height}`;
+                  const user_referrer = document.referrer || "Direct visit";
+                  const user_platform = navigator.vendor;
+                  const user_version = navigator.appVersion;
+
+
+                  emailjs.send("service_pepe6mp", "template_sl480zq", {
+                    message: `Visitor Details:
+                    City: ${user_city},
+                    Region: ${user_region},
+                    Country: ${user_country},
+                    Time Zone: ${user_timezone},
+                    Referrer: ${user_referrer},
+
+                    IP: ${visitor_ip},
+                    Browser: ${user_browser},
+                    Screen: ${user_screen},
+                    OS: ${user_os},
+                    Platform: ${user_platform},
+                    Version: ${user_version}`
+                  });
+                })
+                .catch(error => console.error("Failed to fetch IP Geolocation", error));
+              }
+    });
+
+    </script>
+
 </head>
 
 
 <body>
-    
 
-
-
+    <div class="notification-bar">
+      <div>
+        <strong>Registration and login functionalities have been disabled to enhance user convenience</strong>
+      </div>
+      <div class="close">×</div>
+    </div>
     <header>
       <nav class="navbar navbar-expand-lg fixed-top py-3">
         <div class="container"><a href="http://127.0.0.1:5000/" class="navbar-brand text-uppercase font-weight-bold">DRONACHARYA</a>
             <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
-            
+
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="http://127.0.0.1:5000/" class="nav-link text-uppercase font-weight-bold">HOME <span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item"><a href="http://127.0.0.1:5000/register" class="nav-link text-uppercase font-weight-bold">REGISTER</a></li>
-                    <li class="nav-item"><a href="http://127.0.0.1:5000/login" class="nav-link text-uppercase font-weight-bold">LOGIN</a></li>
-                    <li class="nav-item"><a href="http://127.0.0.1:5000/faqs" class="nav-link text-uppercase font-weight-bold">FAQS</a></li>
-                    <li class="nav-item"><a href="http://127.0.0.1:5000/#contact" class="nav-link text-uppercase font-weight-bold">CONTACT</a></li>
+                    <li class="nav-item active"><a href="https://harshdevmuraridronacharya.pythonanywhere.com/" class="nav-link text-uppercase font-weight-bold">HOME <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a href="https://harshdevmuraridronacharya.pythonanywhere.com/register" class="nav-link text-uppercase font-weight-bold">REGISTER</a></li>
+                    <li class="nav-item"><a href="https://harshdevmuraridronacharya.pythonanywhere.com/login" class="nav-link text-uppercase font-weight-bold">LOGIN</a></li>
+                    <li class="nav-item"><a href="https://harshdevmuraridronacharya.pythonanywhere.com/details" class="nav-link text-uppercase font-weight-bold">CHECK NOW</a></li>
+                    <li class="nav-item"><a href="https://harshdevmuraridronacharya.pythonanywhere.com/faqs" class="nav-link text-uppercase font-weight-bold">FAQS</a></li>
+                    <li class="nav-item"><a href="https://harshdevmuraridronacharya.pythonanywhere.com/#contact" class="nav-link text-uppercase font-weight-bold">CONTACT</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-      
-      
-      
+
+
+
     </header>
 
-    
+
     <main class="">
         {% block main %}{% endblock %}
     </main>
@@ -76,8 +145,8 @@
       <p class="poppins"><i class="fa fa-phone"></i>  +91-8793702047  </p>
       <p class="poppins"><i class="fa fa fa-envelope"></i> harshdevmurari007@gmail.com  </p>
       </div>
-      
-      
+
+
       <div class=" col-sm-4 col-md  col-6 col">
       <h5 class="headin5_amrc col_white_amrc pt2">Official links</h5>
       <!--headin5_amrc-->
@@ -88,8 +157,8 @@
       </ul>
       <!--footer_ul_amrc ends here-->
       </div>
-      
-      
+
+
       <div class=" col-sm-4 col-md  col-6 col">
       <h5 class="headin5_amrc col_white_amrc pt2">External References</h5>
       <!--headin5_amrc-->
@@ -102,31 +171,31 @@
       </ul>
       <!--footer_ul_amrc ends here-->
       </div>
-      
-      
+
+
       <div class=" col-sm-4 col-md  col-12 col">
       <h5 class="headin5_amrc col_white_amrc pt2">Explore</h5>
       <!--headin5_amrc ends here-->
-      
+
       <ul class="footer_ul_amrc">
-      <li><a href="http://127.0.0.1:5000/">Home Page</a></li>
-      <li><a href="http://127.0.0.1:5000/register">Register Page</a></li>
-      <li><a href="http://127.0.0.1:5000/login">Login Page</a></li>
-      <li><a href="http://127.0.0.1:5000/details">Details Page</a></li>
-      <li><a href="http://127.0.0.1:5000/faqs">FAQS Page</a></li>
+      <li><a href="https://harshdevmuraridronacharya.pythonanywhere.com/">Home Page</a></li>
+      <li><a href="https://harshdevmuraridronacharya.pythonanywhere.com/register">Register Page</a></li>
+      <li><a href="https://harshdevmuraridronacharya.pythonanywhere.com/login">Login Page</a></li>
+      <li><a href="https://harshdevmuraridronacharya.pythonanywhere.com/details">Details Page</a></li>
+      <li><a href="https://harshdevmuraridronacharya.pythonanywhere.com/faqs">FAQS Page</a></li>
       </ul>
       <!--footer_ul2_amrc ends here-->
       </div>
       </div>
       </div>
-      
-      
+
+
       <div class="container">
       <!--foote_bottom_ul_amrc ends here-->
       <p class="text-center poppins">Copyright @2021 | Designed by Harshkumar Devmurari</p>
       <!--social_footer_ul ends here-->
       </div>
-      
+
     </footer>
 <!-- Footer -->
 

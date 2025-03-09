@@ -67,9 +67,29 @@ margin: auto;
 font-size: 18px;
 line-height: 1.9;
 }
-  
 
 
+
+
+/*banner disabled registration login functionality*/
+.notification-bar{
+  width: 100%;
+  padding: 10px 5%;
+  color: #31708f;
+  background: #d9edf7;
+  position: absolute;
+  box-sizing: border-box;
+  display: none;
+
+  font-size: 14px;
+
+  .close{
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    cursor: pointer;
+  }
+}
 
 
 
@@ -98,7 +118,7 @@ line-height: 1.9;
 	display: flex;
 }
 .align-center {
-align-items: center; 
+align-items: center;
 }
 .center-center {
 align-items: center;
@@ -119,7 +139,7 @@ justify-content: center;
 	background-color: #5469d4;
 }
 .box-background--white {
-background-color: #ffffff; 
+background-color: #ffffff;
 }
 .box-background--blue800 {
 	background-color: #212d63;
@@ -197,23 +217,23 @@ label {
 	border-radius: 4px;
 	outline-color: rgb(84 105 212 / 0.5);
 	background-color: rgb(255, 255, 255);
-	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-				rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-				rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-				rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, 
-				rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-				rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+				rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+				rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+				rgba(60, 66, 87, 0.16) 0px 0px 0px 1px,
+				rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+				rgba(0, 0, 0, 0) 0px 0px 0px 0px,
 				rgba(0, 0, 0, 0) 0px 0px 0px 0px;
 }
 
 input[type="submit"] {
 	background-color: rgb(84, 105, 212);
-	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-				rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-				rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
-				rgb(84, 105, 212) 0px 0px 0px 1px, 
-				rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-				rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+				rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+				rgba(0, 0, 0, 0.12) 0px 1px 1px 0px,
+				rgb(84, 105, 212) 0px 0px 0px 1px,
+				rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+				rgba(0, 0, 0, 0) 0px 0px 0px 0px,
 				rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
 	color: #fff;
 	font-weight: 600;
@@ -222,7 +242,7 @@ input[type="submit"] {
 .field-checkbox input {
 	width: 20px;
 	height: 15px;
-	margin-right: 5px; 
+	margin-right: 5px;
 	box-shadow: unset;
 	min-height: unset;
 }
@@ -269,7 +289,7 @@ animation: animationLeftRight 4s ease-in-out infinite;
 100% {
 	transform: translateX(0px);
 }
-} 
+}
 
 @keyframes animationRightLeft {
 0% {
@@ -281,7 +301,7 @@ animation: animationLeftRight 4s ease-in-out infinite;
 100% {
 	transform: translateX(0px);
 }
-} 
+}
 
 
 
@@ -317,7 +337,7 @@ html {
 }
 
 body, p {
-	color: #555; 
+	color: #555;
 	font: 400 1rem/1.625rem "Open Sans", sans-serif;;
 }
 
@@ -533,7 +553,7 @@ a.white {
 }
 
 /* IE10+ hack to solve lower label text position compared to the rest of the browsers */
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
 	.label-control {
 		top: 0.9375rem;
 	}
@@ -572,7 +592,7 @@ a.white {
 }
 
 /* IE10+ hack to solve lower label text position compared to the rest of the browsers */
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
 	.form-control-input {
 		padding-top: 1.25rem;
 		padding-bottom: 0.75rem;
@@ -641,7 +661,7 @@ input[type='checkbox'] {
 }
 
 /* IE10+ hack to raise checkbox field position compared to the rest of the browsers */
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
 	input[type='checkbox'] {
 		vertical-align: -9%;
 	}
@@ -687,7 +707,7 @@ input[type='checkbox'] {
 	left: 50%; /* centers the loading animation horizontally one the screen */
 	width: 3.75rem;
 	height: 1.25rem;
-	margin: -0.625rem 0 0 -1.875rem; /* is width and height divided by two */ 
+	margin: -0.625rem 0 0 -1.875rem; /* is width and height divided by two */
 	text-align: center;
 }
 
@@ -717,11 +737,11 @@ input[type='checkbox'] {
 }
 
 @keyframes sk-bouncedelay {
-	0%, 80%, 100% { 
+	0%, 80%, 100% {
 		-webkit-transform: scale(0);
 		-ms-transform: scale(0);
 		transform: scale(0);
-	} 40% { 
+	} 40% {
 		-webkit-transform: scale(1.0);
 		-ms-transform: scale(1.0);
 		transform: scale(1.0);
@@ -1105,10 +1125,10 @@ input[type='checkbox'] {
 
 /*****************************/
 /*     8. Media Queries     */
-/*****************************/	
+/*****************************/
 /* Min-width width 768px */
 @media (min-width: 768px) {
-	
+
 	/* General Styles */
 	.p-heading {
 		width: 85%;
@@ -1193,7 +1213,7 @@ input[type='checkbox'] {
 		position: relative;
 		margin-top: 3rem;
 	}
-	
+
 	.header .image-container .img-wrapper {
 		position: absolute;
 		display: block;
@@ -1223,9 +1243,9 @@ input[type='checkbox'] {
 
 
 	/* Features */
-	
 
-	
+
+
 
 	.tabs .image-container {
 		margin-bottom: 0;
@@ -1245,7 +1265,7 @@ input[type='checkbox'] {
 		margin-bottom: 0;
 		margin-left: 0.5rem;
 	}
-	
+
 	.lightbox-basic h3 {
 		margin-top: 0.5rem;
 	}
@@ -1298,7 +1318,7 @@ input[type='checkbox'] {
 
 /* Min-width width 1200px */
 @media (min-width: 1200px) {
-	
+
 	/* General Styles */
 	.h2-heading {
 		width: 50%;
@@ -1350,7 +1370,7 @@ input[type='checkbox'] {
 		margin-right: 1.5rem;
 		margin-left: 1rem;
 	}
-	
+
 	.tabs .text-container {
 		margin-top: 1.5rem;
 		margin-right: 1rem;
@@ -1364,7 +1384,7 @@ input[type='checkbox'] {
 		margin-right: 1rem;
 		margin-left: 1.5rem;
 	}
-	
+
 	.basic-1 .text-container {
 		margin-top: 1rem;
 		margin-right: 1.5rem;

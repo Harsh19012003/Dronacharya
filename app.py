@@ -11,7 +11,7 @@ import flask_session
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, user_tracked_location, input_location_coords, password_check, send_notification_email
+from helpers import apology, login_required, user_tracked_location, input_location_coords, password_check, send_notification_email, email_check
 
 
 # Configure application
@@ -74,12 +74,12 @@ conn.commit()
 print("clg insertion successfull")
 """
 
-
-
 # APP ROUTES
 
 @app.route("/")
 def index():
+    name="NONE"
+    email="NONE"
     return render_template("index.html")
 
 
@@ -106,6 +106,10 @@ def register():
         # Generating hash to store in database
         hash = generate_password_hash(password)
 
+        #Check if email is valid or not
+        if not email_check(email):
+            return apology("Alert, Email Address is not Valid")
+
 
         # Storing in database
         db.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", [name, email, hash])
@@ -116,14 +120,8 @@ def register():
         db.execute("SELECT * FROM users")
         print(f"fetch of register2", db.fetchall())
 
-        # Set the sender and recipient email addresses
-        sender_email = 'dronacharya.counsellor@gmail.com'
-        sender_password = 'ncmltbtaqqkhtmsv'
-        recipient_email = 'harshdevmurari007@gmail.com'
-        visit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
         # Send me email
-        send_notification_email(sender_email, sender_password, recipient_email, name, email, visit_time)
+        send_notification_email(name, email)
 
 
         return redirect("/login")
